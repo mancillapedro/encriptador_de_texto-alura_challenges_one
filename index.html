@@ -18,8 +18,10 @@
     </header>
     <main>
         <section id="input-section">
-            <textarea class="w-100" name="" id="" rows="10" placeholder="Ingrese el texto aqui"></textarea>
-            <p> Solo letras minúsculas y sin acentos</p>
+            <textarea name="" id="" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+            <p>
+                <img src="./assets/images/warning-icon.svg" alt="">Solo letras minúsculas y sin acentos
+            </p>
             <div>
                 <button class="btn btn-blue">Encriptar</button>
                 <button class="btn btn-light">Desencriptar</button>
@@ -27,10 +29,13 @@
         </section>
 
         <section id="output-section">
-            <div>
-                <img src="" alt="">
+            <div id="message" >
+                <img class="d-none" src="" alt="">
                 <h4>Ningún mensaje fue encontrado</h4>
                 <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <div id="output" class="d-none">
+                <p></p>
                 <button class="btn btn-light">Copiar</button>
             </div>
         </section>

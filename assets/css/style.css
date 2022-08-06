@@ -1,9 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 :root {
     --dark-blue-100: #609ED4;
@@ -11,27 +6,99 @@
     --dark-blue-300: #0A3871;
     --dark-blue-400: #072B61;
     --dark-blue-500: #052051;
-
     --light-blue-100: #F3F5FC;
     --light-blue-200: #EFF1FA;
     --light-blue-300: #E9ECF8;
     --light-blue-400: #AAB2D5;
     --light-blue-500: #757FB2;
-
     --gray-100: #CED4DA;
     --gray-200: #ADB5BD;
     --gray-300: #868E96;
     --gray-400: #495057;
     --gray-500: #343A40;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    border: none;
+    line-height: 150%;
 }
 
 body {
     background-color: var(--light-blue-100);
+    font-family: 'Inter', sans-serif;
 }
 
-.w-100 {
+nav {
+    height: 6rem;
+    display: flex;
+}
+
+.logo {
+    display: block;
+    margin: auto auto auto 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+#input-section {
+    margin: 2rem 0;
+}
+
+#input-section textarea,
+#input-section textarea::placeholder {
+    color: var(--dark-blue-300);
+    font-size: 2rem;
+    opacity: 1;
+}
+
+#input-section textarea {
+    background-color: var(--light-blue-100);
+    resize: none;
     width: 100%;
+}
+
+#input-section p {
+    margin-bottom: 1rem;
+    font-size: .75rem;
+}
+
+#input-section p>img {
+    vertical-align: middle;
+    margin-right: .5rem;
+}
+
+#output-section {
+    background-color: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    margin: 1.5rem .5rem;
+    text-align: center;
+}
+
+#output-section #message h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 120%;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+}
+
+#output-section #message p {
+    line-height: 150%;
+}
+
+#output-section #output p {
+    font-size: 1.5rem;
 }
 
 .btn {
@@ -39,9 +106,9 @@ body {
     width: 100%;
     border: 1px solid var(--dark-blue-300);
     height: 4rem;
-    font-size: 1rem;
     margin-bottom: 1.5rem;
     cursor: pointer;
+    line-height: 19px;
 }
 
 .btn.btn-blue {
@@ -62,46 +129,6 @@ body {
     background-color: var(--light-blue-200);
 }
 
-
-
-nav {
-    height: 6rem;
-    display: flex;
-}
-
-.logo {
-    display: block;
-    margin: auto auto auto 1rem;
-}
-
-main {
-    padding: 1rem;
-}
-
-#input-section {
-    margin: 2rem 0;
-}
-
-textarea {
-    background-color: var(--light-blue-100);
-    border: none;
-    resize: none;
-    /* overflow:visible */
-}
-
-#output-section {
-    background-color: white;
-    border-radius: 2rem;
-    padding: 2rem;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    margin: 0.5rem;
-    text-align: center;
-}
-
-#output-section h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 120%;
-    color: var(--gray-500);
-    font-family: 'Inter';
+.d-none {
+    display: none;
 }

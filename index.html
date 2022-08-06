@@ -18,25 +18,25 @@
     </header>
     <main>
         <section id="input-section">
-            <textarea name="" id="" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+            <textarea type="text" rows="10" placeholder="Ingrese el texto aqui"></textarea>
             <p>
                 <img src="./assets/images/warning-icon.svg" alt="">Solo letras minúsculas y sin acentos
             </p>
             <div>
-                <button id="encrypt" class="btn btn-blue">Encriptar</button>
-                <button id="decrypt" class="btn btn-light">Desencriptar</button>
+                <button type="button" id="encrypt" class="btn btn-blue" disabled>Encriptar</button>
+                <button type="button" id="decrypt" class="btn btn-light" disabled>Desencriptar</button>
             </div>
         </section>
 
         <section id="output-section">
-            <div id="message" >
+            <div id="message">
                 <img src="./assets/images/munheco.svg" alt="">
                 <h4>Ningún mensaje fue encontrado</h4>
                 <p>Ingresa el texto que desees encriptar o desencriptar.</p>
             </div>
             <div id="output" class="d-none">
                 <p></p>
-                <button id="copy" class="btn btn-light">Copiar</button>
+                <button type="button" id="copy" class="btn btn-light">Copiar</button>
             </div>
         </section>
     </main>

@@ -58,12 +58,17 @@ main {
     color: var(--dark-blue-300);
     font-size: 2rem;
     opacity: 1;
+    border-radius: .5rem;
 }
 
 #input-section textarea {
     background-color: var(--light-blue-100);
     resize: none;
     width: 100%;
+}
+
+#input-section textarea:focus {
+    outline: none;
 }
 
 #input-section p {
@@ -102,6 +107,7 @@ main {
 }
 
 #output-section #output p {
+    text-align: left;
     font-size: 1.5rem;
 }
 
@@ -113,6 +119,12 @@ main {
     margin-bottom: 1.5rem;
     cursor: pointer;
     line-height: 19px;
+    transition: background-color 200ms;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: .7;
 }
 
 .btn.btn-blue {
@@ -135,4 +147,12 @@ main {
 
 .d-none {
     display: none;
+}
+
+.validated {
+    border: 2px solid rgb(50, 200, 50);
+}
+
+.validated.invalidText {
+    border: 2px solid rgb(255, 0, 0);
 }

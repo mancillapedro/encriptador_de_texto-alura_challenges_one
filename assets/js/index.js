@@ -1,22 +1,32 @@
 const $ = query => document.querySelector(query)
 
-const buttonActions = (() => {
+const btnActions = (() => {
     const dictionary = { 'e': 'enter', 'i': 'imes', 'a': 'ai', 'o': 'ober', 'u': 'ufat' }
-    const textarea = $('#input-section textarea')
-    const output = $('#output')
-    const DefaultMessage = $('#message').classList
+    const output = $('#output > p')
     const showOutput = newText => {
-        output.firstElementChild.textContent = newText
-        output.classList.remove('d-none')
-        DefaultMessage.add('d-none')
+        output.textContent = newText
+        output.parentElement.classList.remove('d-none')
+        $('#message').classList.add('d-none')
     }
     return {
-        encrypt: () => showOutput(textarea.value.replace(/[aeiou]/gm, match => dictionary[match])),
-        decrypt: () => showOutput(textarea.value.replace(/enter|imes|ai|ober|ufat/gm, match => match[0])),
-        copy: () => console.log(output.firstElementChild.textContent)
+        encrypt: input => showOutput(input.value.replace(/[aeiou]/gm, match => dictionary[match])),
+        decrypt: input => showOutput(input.value.replace(/enter|imes|ai|ober|ufat/gm, match => match[0])),
+        copy: () => navigator.clipboard.writeText(output.textContent)
     }
 })()
 
-$('#encrypt').onclick = buttonActions.encrypt
-$('#decrypt').onclick = buttonActions.decrypt
-$('#copy').onclick = buttonActions.copy
+const textarea = $('#input-section textarea')
+const btnEncrypt = $('#encrypt')
+const btnDecrypt = $('#decrypt')
+
+textarea.oninput = function () {
+    const invalidInput = /^\s*$|[^a-z\s!?¿?¡\.,;]/g.test(this.value)
+    this.classList.add('validated')
+    invalidInput ? this.classList.add('invalidText') : this.classList.remove('invalidText')
+    btnEncrypt.disabled = invalidInput
+    btnDecrypt.disabled = invalidInput
+}
+
+btnEncrypt.onclick = () => btnActions.encrypt(textarea)
+btnDecrypt.onclick = () => btnActions.decrypt(textarea)
+$('#copy').onclick = btnActions.copy

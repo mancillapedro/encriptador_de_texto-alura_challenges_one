@@ -30,3 +30,8 @@ textarea.oninput = function () {
 btnEncrypt.onclick = () => btnActions.encrypt(textarea)
 btnDecrypt.onclick = () => btnActions.decrypt(textarea)
 $('#copy').onclick = btnActions.copy
+
+// ---ToDo---
+// autosize textarea
+// confirm copy
+// +info validation input

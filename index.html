@@ -11,21 +11,21 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <img class="logo" src="./assets/images/logo.svg" alt="logo alura">
-        </nav>
-    </header>
     <main>
         <section id="input-section">
-            <textarea type="text" rows="10" placeholder="Ingrese el texto aqui"></textarea>
-            <p>
-                <img src="./assets/images/warning-icon.svg" alt="">Solo letras minúsculas y sin acentos
-            </p>
-            <div id="btns">
-                <button type="button" id="encrypt" class="btn btn-blue" disabled>Encriptar</button>
-                <button type="button" id="decrypt" class="btn btn-light" disabled>Desencriptar</button>
-            </div>
+            <header>
+                <img class="logo" src="./assets/images/logo.svg" alt="logo alura">
+            </header>
+            <form>
+                <textarea type="text" placeholder="Ingrese el texto aqui"></textarea>
+                <p>
+                    <img src="./assets/images/warning-icon.svg" alt="">Solo letras minúsculas y sin acentos
+                </p>
+                <div id="btns">
+                    <button type="button" id="encrypt" class="btn btn-blue" disabled>Encriptar</button>
+                    <button type="button" id="decrypt" class="btn btn-light" disabled>Desencriptar</button>
+                </div>
+            </form>
         </section>
 
         <section id="output-section">

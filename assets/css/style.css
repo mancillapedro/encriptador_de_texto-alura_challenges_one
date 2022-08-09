@@ -16,6 +16,24 @@
     --gray-300: #868E96;
     --gray-400: #495057;
     --gray-500: #343A40;
+
+    --main-py: 1.5rem;
+    --main-px: 1rem;
+
+    --input-section-mb: 2rem;
+
+    --header-mb: 5rem;
+    --header-pt: 0rem;
+    --header-pl: 0rem;
+
+    --textarea-mh: 45vh;
+
+    --btns-flex-direction: column;
+
+    --output-section-my: 1rem;
+    --output-section-mx: .5rem;
+
+    --message-img-display: none;
 }
 
 * {
@@ -35,22 +53,22 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-nav {
-    height: 6rem;
-    display: flex;
-}
-
-.logo {
-    display: block;
-    margin: auto auto auto 1rem;
-}
-
 main {
-    padding: 1rem;
+    padding: var(--main-py) var(--main-px);
 }
 
 #input-section {
-    margin: 2rem 0;
+    margin-bottom: var(--input-section-mb);
+}
+
+header {
+    margin-bottom: var(--header-mb);
+    padding-top: var(--header-pt);
+    padding-left: var(--header-pl);
+}
+
+#input-section textarea {
+    min-height: var(--textarea-mh);
 }
 
 #input-section textarea,
@@ -83,7 +101,7 @@ main {
 
 #input-section #btns {
     display: flex;
-    flex-direction: column;
+    flex-direction: var(--btns-flex-direction);
     gap: 1.5rem;
 }
 
@@ -92,12 +110,13 @@ main {
     border-radius: 2rem;
     padding: 2rem;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    margin: 1.5rem .5rem;
+    margin: var(--output-section-my) var(--output-section-mx);
     text-align: center;
 }
 
 #output-section #message img {
-    display: none;
+    display: var(--message-img-display);
+    margin-bottom: 2rem;
 }
 
 #output-section #message h4 {
@@ -164,28 +183,45 @@ main {
     border: 2px solid rgb(255, 0, 0);
 }
 
-@media (min-width: 768px) {
-    nav {
-        padding: 4.625rem 2.5rem;
+@media (min-width: 576px) {
+    :root {
+        --main-px: 2.5rem;
+        --input-section-mb: 4rem;
+        --header-mb: 7.25rem;
+        --header-pt: 3.5rem;
+        --textarea-mh: 60vh;
+        --btns-flex-direction: row;
+        --output-section-my: 1.5rem;
+        --output-section-mx: 0rem;
     }
+}
 
-    .logo {
-        margin-left: 0;
+@media (min-width: 1200px) {
+
+    :root {
+        --main-py: 2.5rem;
+        --input-section-mb: 0rem;
+        --header-mb: 5rem;
+        --header-pt: 0rem;
+        --header-pl: 2.75rem;
+        --output-section-my: 0rem;
+        --message-img-display: block;
     }
 
     main {
-        padding: 1rem 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr 28vw;
     }
 
-    #input-section {
-        margin: 4rem 0;
-    }
-
-    #input-section #btns {
-        flex-direction: row;
+    form {
+        padding-bottom: 2rem;
+        padding-left: 14vw;
+        padding-right: 5rem;
     }
 
     #output-section {
-        margin: 1.5rem 0;
+        display: flex;
+        align-items: center;
     }
+
 }

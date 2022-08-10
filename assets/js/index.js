@@ -3,10 +3,12 @@ const $ = query => document.querySelector(query)
 const btnActions = (() => {
     const dictionary = { 'e': 'enter', 'i': 'imes', 'a': 'ai', 'o': 'ober', 'u': 'ufat' }
     const output = $('#output > p')
+    const message = $('#message').classList
     const showOutput = newText => {
+        message.add('d-none')
         output.textContent = newText
         output.parentElement.classList.remove('d-none')
-        $('#message').classList.add('d-none')
+        output.scrollIntoView({ block: "start", behavior: "smooth" })
     }
     return {
         encrypt: input => showOutput(input.value.replace(/[aeiou]/gm, match => dictionary[match])),

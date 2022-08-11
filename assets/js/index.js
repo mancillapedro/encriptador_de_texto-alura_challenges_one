@@ -21,6 +21,8 @@ const textarea = $('#input-section textarea')
 const btnEncrypt = $('#encrypt')
 const btnDecrypt = $('#decrypt')
 
+$('form').onclick = ()=> textarea.focus()
+
 textarea.oninput = function () {
     const invalidInput = /^\s*$|[^a-z\s!?¿?¡\.,;]/g.test(this.value)
     this.classList.add('validated')

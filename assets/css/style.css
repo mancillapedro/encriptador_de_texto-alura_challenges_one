@@ -46,6 +46,10 @@
     line-height: 150%;
 }
 
+b {
+    font-weight: 700;
+}
+
 body {
     background-color: var(--light-blue-100);
     font-family: 'Inter', sans-serif;
@@ -69,6 +73,7 @@ form {
     min-height: calc(100vh - 54px - var(--header-mb) - var(--header-pt) - (var(--main-py) * 2));
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #input-section textarea,
@@ -103,11 +108,6 @@ form {
     display: flex;
     flex-direction: var(--btns-flex-direction);
     gap: 1.5rem;
-}
-
-#footer-form {
-    margin-bottom: 0;
-    margin-top: auto;
 }
 
 #output-section {
@@ -148,6 +148,7 @@ form {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #output-section #output p {
@@ -156,11 +157,6 @@ form {
     overflow-wrap: anywhere;
     max-width: 100%;
     margin-bottom: 2rem;
-}
-
-#output #copy {
-    margin-bottom: 0;
-    margin-top: auto;
 }
 
 .btn {
@@ -200,12 +196,12 @@ form {
     display: none !important;
 }
 
-.validated {
-    border: 2px solid rgb(50, 200, 50);
+.validated:focus {
+    border: 2px solid rgb(50, 200, 50) !important;
 }
 
-.validated.invalidText {
-    border: 2px solid rgb(255, 0, 0);
+.validated.invalidText:focus {
+    border: 2px solid rgb(255, 0, 0) !important;
 }
 
 @media (min-width: 576px) {

@@ -13,29 +13,29 @@ const btnActions = (() => {
     return {
         encrypt: input => showOutput(input.value.replace(/[aeiou]/gm, match => dictionary[match])),
         decrypt: input => showOutput(input.value.replace(/enter|imes|ai|ober|ufat/gm, match => match[0])),
-        copy: () => navigator.clipboard.writeText(output.textContent)
+        copy: self => {
+            navigator.clipboard.writeText(output.textContent)
+            self.textContent = '¡Copiado!'
+            setInterval(() => self.textContent = 'Copiar', 2000);
+        }
     }
 })()
 
-const textarea = $('#input-section textarea')
 const btnEncrypt = $('#encrypt')
 const btnDecrypt = $('#decrypt')
+const form = $('form')
+const textarea = $('form textarea')
 
-$('form').onclick = ()=> textarea.focus()
-
-textarea.oninput = function () {
-    const invalidInput = /^\s*$|[^a-z\s!?¿?¡\.,;]/g.test(this.value)
-    this.classList.add('validated')
-    invalidInput ? this.classList.add('invalidText') : this.classList.remove('invalidText')
+form.onclick = () => textarea.focus()
+form.oninput = function () {
+    const invalidInput = /^\s*$|[^a-z\s!?¿?¡\.,;]/g.test(textarea.value)
+    textarea.style.height = 'auto'
+    textarea.value.trim() && invalidInput ? this.classList.add('invalidText') : this.classList.remove('invalidText')
     btnEncrypt.disabled = invalidInput
     btnDecrypt.disabled = invalidInput
+    textarea.style.height = `${textarea.scrollHeight}px`
 }
 
 btnEncrypt.onclick = () => btnActions.encrypt(textarea)
 btnDecrypt.onclick = () => btnActions.decrypt(textarea)
-$('#copy').onclick = btnActions.copy
-
-// ---ToDo---
-// autosize textarea
-// confirm copy
-// +info validation input
+$('#copy').onclick = function () { btnActions.copy(this) }

@@ -87,6 +87,7 @@ form {
 #input-section textarea {
     background-color: var(--light-blue-100);
     resize: none;
+    overflow-y: hidden;
     width: 100%;
 }
 
@@ -97,11 +98,13 @@ form {
 #input-section p {
     margin-bottom: 1rem;
     font-size: .75rem;
+    transition: all 200ms;
 }
 
 #input-section p>img {
-    vertical-align: middle;
+    vertical-align: text-bottom;
     margin-right: .5rem;
+    transition: all 200ms;
 }
 
 #input-section #btns {
@@ -159,14 +162,28 @@ form {
     margin-bottom: 2rem;
 }
 
+#output-section #output p:active {
+    border: 4px solid black;
+    transition: all 1s;
+}
+
 .btn {
     border-radius: 1.5rem;
     width: 100%;
     border: 1px solid var(--dark-blue-300);
     height: 4rem;
-    cursor: pointer;
     line-height: 19px;
     transition: background-color 200ms;
+}
+
+.btn:not(:disabled):hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 4px 8px;
+    transform: translateY(-4px);
+}
+
+.btn:not(:disabled):active {
+    transform: translateY(0) !important;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 4px 8px inset !important;
 }
 
 .btn:disabled {
@@ -179,7 +196,7 @@ form {
     color: white;
 }
 
-.btn-blue:hover {
+.btn-blue:not(:disabled):hover {
     background-color: var(--dark-blue-300);
 }
 
@@ -188,7 +205,7 @@ form {
     color: var(--dark-blue-300);
 }
 
-.btn-light:hover {
+.btn-light:not(:disabled):hover {
     background-color: var(--light-blue-200);
 }
 
@@ -196,12 +213,25 @@ form {
     display: none !important;
 }
 
-.validated:focus {
-    border: 2px solid rgb(50, 200, 50) !important;
+.invalidText textarea:focus {
+    border: 2px solid rgb(255, 0, 0) !important;
 }
 
-.validated.invalidText:focus {
-    border: 2px solid rgb(255, 0, 0) !important;
+.invalidText p {
+    color: red;
+    font-weight: 700;
+    font-size: .8rem !important;
+    text-decoration: underline;
+    transition: all 200ms;
+}
+
+.invalidText p::after {
+    content: "!!!";
+}
+
+.invalidText p>img {
+    transform: scale(1.1);
+    transition: all 200ms;
 }
 
 @media (min-width: 576px) {
